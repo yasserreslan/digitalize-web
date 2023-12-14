@@ -17,6 +17,8 @@ body {
     sans-serif;
 }
 
+
+
 a {
   color: inherit;
   text-decoration: none;
@@ -29,4 +31,330 @@ a {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* increased from 10px for larger input fields */
+  padding: 30px; /* increased for a larger form */
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  width: 350px; /* you can adjust this as needed */
+}
+
+.input-field {
+  padding: 15px; /* increased padding for larger fields */
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.submit-button, .toggle-button {
+  padding: 12px; /* slightly larger buttons */
+  background-color: #7a5dbd; /* a more blue-purple color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover, .toggle-button:hover {
+  background-color: #6a4dac; /* a darker shade for hover state */
+}
+
+.toggle-button {
+  margin-top: 20px; /* added margin between the form and the button */
+}
+
+.admin .submit-button, .admin .toggle-button {
+  background-color: blue; /* Change to blue for admin */
+}
+
+.admin .submit-button:hover, .admin .toggle-button:hover {
+  background-color: darkblue; /* Darker blue for hover state */
+}
+
+.user-type-toggle {
+  text-decoration: underline;
+  color: purple;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.admin .user-type-toggle {
+  color: blue; /* Change text color to blue for admin */
+}
+
+
+.logo {
+  max-width: 150px; /* Adjust the size as needed */
+  margin-bottom: 20px; /* Adds some space below the logo */
+  display: block; /* Ensures the logo is centered */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.success-message {
+  color: rgb(3, 155, 3);
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+
+
+/* User.js */
+
+.sign-out-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #6a4dac;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sign-out-button:hover {
+  background-color: #3a5f85;
+}
+
+.devices {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.device {
+  padding: 15px;
+  background-color: #e4e4e4;
+  border-radius: 5px;
+  max-width: 70%;
+}
+
+
+
+
+
+/* Admin page */
+
+.admin-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #7a5dbd;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #5a448c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  background-color: #44336a;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  background-color: #f0f0f0;
+}
+
+.admin-form {
+  width: 100%;
+  max-width: 400px; /* Adjust based on your preference */
+  padding: 20px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 8px;
+}
+
+
+
+
+
+
+
+/* SHow users page */
+
+/* General Styles for the Users Page */
+.users-container {
+  padding: 20px;
+  max-width: 800px;
+  margin-left: 0; /* Align to the left */
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user {
+  background-color: #ffffff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.user h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.devices-list {
+  margin-left: 0; /* Remove left margin */
+}
+
+.device {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Ensure device takes full width */
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #eef2ff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adjust the shadow as needed */
+}
+
+.device span {
+  flex-grow: 1;
+  font-size: 14px;
+  color: #444;
+}
+
+.toggle-status-button {
+  margin-left: 10px;
+  padding: 6px 12px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-status-button.active {
+  background-color: #ff6b6b;
+}
+
+.toggle-status-button.active:hover {
+  background-color: #ff4757;
+}
+
+.toggle-status-button.inactive {
+  background-color: #28a745;
+}
+
+.toggle-status-button.inactive:hover {
+  background-color: #218838;
+}
+
+
+/* Optional: Add a small icon before the device details */
+.device span:before {
+  content: '📱'; /* or any appropriate icon */
+  margin-right: 8px;
+  display: inline-block;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .users-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .device {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .deactivate-button {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
+
+
+
+
+
+/* System Settings */
+
+
+.settings-container {
+  /* Styles for the settings container */
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.setting {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.setting span {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.setting button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.setting button:hover {
+  background-color: #388E3C;
+}
+
+.setting input[type="number"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
 }
