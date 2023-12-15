@@ -41,8 +41,6 @@ export default function AuthForm() {
     }
   }, []);
 
-
-
   const toggleForm = () => {
     setIsLogin(!isLogin);
   };
