@@ -5,16 +5,18 @@ FROM node:19-alpine
 WORKDIR /app
 
 # Copy package.json and package-lock.json to /app
-COPY package.json package-lock.json ./
-
+COPY package.json package-lock.json app/
+ADD package.json /app/
 # Install dependencies
 RUN npm install --force
 
 # Copy the rest of the app files to /app
-COPY . .
+COPY . app/
+ADD . /app/
 
 # Build the app
 RUN npm run build
+ADD . /app/
 
 # Set the environment variable
 ENV NODE_ENV production
