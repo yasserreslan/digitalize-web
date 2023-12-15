@@ -7,7 +7,6 @@ export default function AuthForm() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    console.log("teststst")
     // Check if a token is present in local storage
     const token = localStorage.getItem('digitalize_token');
 

@@ -5,10 +5,13 @@ export default function UserPage() {
   const [devices, setDevices] = useState([]);
 
   useEffect(() => {
+    const host = window.location.host;
+    const url = `http://${host}`;
+
     const fetchDevices = async () => {
       const token = localStorage.getItem('digitalize_token');
       try {
-        const response = await axios.get('http://localhost:8000/devices/', {
+        const response = await axios.get(`${url}/api/devices/`, {
           headers: { Authorization: token }
         });
         setDevices(response.data);

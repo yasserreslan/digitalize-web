@@ -8,7 +8,9 @@ export default function SystemSettings() {
     const fetchSettings = async () => {
       try {
         const token = localStorage.getItem('digitalize_token');
-        const response = await axios.get('http://localhost:8000/settings/',{headers: { Authorization: token }});
+        const host = window.location.host;
+        const url = `http://${host}`;
+        const response = await axios.get(`${url}/api/settings/`,{headers: { Authorization: token }});
         setSettings(response.data);
       } catch (error) {
         console.error(error);
@@ -21,7 +23,9 @@ export default function SystemSettings() {
   const handleToggle = async (settingId) => {
     try {
       const token = localStorage.getItem('digitalize_token');
-      const response = await axios.post('http://127.0.0.1:8000/settings/toggle_registration/', {}, {
+      const host = window.location.host;
+    const url = `http://${host}`;
+      const response = await axios.post(`${url}/api/settings/toggle_registration/`, {}, {
         headers: {
             Authorization: token
         }
@@ -55,7 +59,9 @@ export default function SystemSettings() {
     const sendUpdateRequest = debounce(async () => {
       try {
         const token = localStorage.getItem('digitalize_token');
-        const response = await axios.post('http://127.0.0.1:8000/settings/registration_limit/', {
+        const host = window.location.host;
+        const url = `http://${host}`;
+        const response = await axios.post(`${url}/settings/registration_limit/`, {
             limit: newValue
           }, {
             headers: {

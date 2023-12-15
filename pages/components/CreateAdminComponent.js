@@ -16,9 +16,11 @@ export default function CreateAdminComponent() {
     event.preventDefault();
     
     try {
-        const token = localStorage.getItem('digitalize_token');
+    const token = localStorage.getItem('digitalize_token');
+    const host = window.location.host;
+    const url = `http://${host}`;
 
-      const response = await axios.post('http://localhost:8000/register/', { email, username, password, user_type: 'admin' },  {headers: { Authorization: token }});
+      const response = await axios.post(`${url}/api/register/`, { email, username, password, user_type: 'admin' },  {headers: { Authorization: token }});
       if (response.status === 200) {
         setSuccessMessage("Admin user created successfully!")
         

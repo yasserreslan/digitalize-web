@@ -8,8 +8,10 @@ export default function ShowUsers() {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('digitalize_token');
+        const host = window.location.host;
+        const url = `http://${host}`;
 
-        const response = await axios.get('http://localhost:8000/users/',{headers: { Authorization: token }});
+        const response = await axios.get(`${url}/api/users/`,{headers: { Authorization: token }});
         
         setUsers(response.data);
 
@@ -27,7 +29,9 @@ export default function ShowUsers() {
     try {
       const token = localStorage.getItem('digitalize_token');
       const newStatus = currentStatus === 'active' ? 'inactive' : 'active';
-      const response = await axios.post('http://localhost:8000/devices/status/', { user_id:userId, device_id:deviceId },{headers: { Authorization: token }});
+      const host = window.location.host;
+      const url = `http://${host}`;
+      const response = await axios.post(`${url}/api/devices/status/`, { user_id:userId, device_id:deviceId },{headers: { Authorization: token }});
 
       // Update the state to reflect the change
       setUsers(users.map(user => {

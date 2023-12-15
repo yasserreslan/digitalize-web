@@ -10,8 +10,12 @@ export default function LoginForm({ isAdmin, toggleUserType }) {
     event.preventDefault();
     const userType = isAdmin ? 'admin' : 'normal';
 
+    const host = window.location.host;
+    const url = `http://${host}`;
+
+    console.log(url)
     try {
-      const response = await axios.post('http://localhost:8000/login/', { username, password, user_type: userType });
+      const response = await axios.post(`${url}/login/`, { username, password, user_type: userType });
       if (response.status === 200) {
         const { token } = response.data;
         handleToken(token);

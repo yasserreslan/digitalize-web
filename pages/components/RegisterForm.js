@@ -12,7 +12,9 @@ export default function RegisterForm({  toggleUserType }) {
     event.preventDefault();
     
     try {
-      const response = await axios.post('http://localhost:8000/register/', { email, username, password, user_type: 'normal' });
+      const host = window.location.host;
+      const url = `http://${host}`;
+      const response = await axios.post(`${url}/api/register/`, { email, username, password, user_type: 'normal' });
       if (response.status === 200) {
         const { token } = response.data;
         handleToken(token);
