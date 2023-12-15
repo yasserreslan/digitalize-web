@@ -15,7 +15,7 @@ export default function LoginForm({ isAdmin, toggleUserType }) {
 
     console.log(url)
     try {
-      const response = await axios.post(`${url}/login/`, { username, password, user_type: userType });
+      const response = await axios.post(`${url}/api/login/`, { username, password, user_type: userType });
       if (response.status === 200) {
         const { token } = response.data;
         handleToken(token);
