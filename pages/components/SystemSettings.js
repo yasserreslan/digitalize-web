@@ -61,7 +61,7 @@ export default function SystemSettings() {
         const token = localStorage.getItem('digitalize_token');
         const host = window.location.host;
         const url = `http://${host}`;
-        const response = await axios.post(`${url}/settings/registration_limit/`, {
+        const response = await axios.post(`${url}/api/settings/registration_limit/`, {
             limit: newValue
           }, {
             headers: {
