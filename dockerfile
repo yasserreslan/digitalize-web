@@ -1,24 +1,26 @@
 # Use an official Node.js runtime as a parent image
-FROM node:18
+FROM node:19-alpine
 
-# Set the working directory in the container
+# Set the working directory to /app
 WORKDIR /app
 
-# Clear npm cache
-RUN npm cache clean --force
+# Copy package.json and package-lock.json to /app
+COPY package.json package-lock.json ./
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+# Install dependencies
+RUN npm install --force
 
-# Install project dependencies
-RUN npm install
-
-# Copy the rest of the application code to the working directory
+# Copy the rest of the app files to /app
 COPY . .
 
+# Build the app
+RUN npm run build
 
-# Expose the port that the Next.js app will run on
+# Set the environment variable
+ENV NODE_ENV production
+
+# Expose port 3000
 EXPOSE 3000
 
-# Define the command to start your Next.js app
-CMD ["npm", "start"]
+# Start the app
+CMD [ "npm", "start" ]
